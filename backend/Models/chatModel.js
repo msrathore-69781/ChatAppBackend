@@ -22,18 +22,18 @@ const chatModel = mongoose.Schema(
         },
         groupAdmin: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:"User",
-            
+            ref: "User",
+
         }
 
 
     },
 
     //mongoose create a time stamps
-    {timesstamps :true,}
+    { timesstamps: true, }
 );
 
 
-const Chat = mongoose.model("Chats",chatModel);
+const Chat = mongoose.model("Chats", chatModel);
 
 module.exports = Chat;

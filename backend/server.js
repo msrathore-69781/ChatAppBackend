@@ -30,12 +30,18 @@ io.on("connection", (socket) => {
         //     "email": msg.email,
         //     "password": msg.password
         // };
+        app.use("/api/user", userRoutes);
+
     });
     socket.on("/message", (msg) => {
         console.log(msg);
+        app.use("/api/message", messageRoutes);
 
-        // let targetId = msg.targetId;
-        // clients[targetId].emit("message",msg);
+    });
+    socket.on("/chat", (msg) => {
+        console.log(msg);
+        app.use("/api/chat", chatRoutes);
+
     });
 });
 server.listen(port, "0.0.0.0", () => {
@@ -46,7 +52,7 @@ dotenv.config();
 connectDB();
 
 
-app.use("/api/user", userRoutes);
+// app.use("/api/user", userRoutes);
 // app.use("/api/chat", chatRoutes);
 // app.use("/api/message", messageRoutes);
 
